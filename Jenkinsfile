@@ -44,7 +44,9 @@ pipeline {
         }
 
         stage('Scan Docker image') {
-            echo "====++++Pouet++++===="
+            steps {
+                echo "====++++Pouet++++===="
+            }
         }
     }
 }
