@@ -46,7 +46,7 @@ pipeline {
 
         stage('Scan Docker image') {
             agent {
-                docker.pull('aquasec/trivy:latest')
+                docker.Image.pull('aquasec/trivy:latest')
             }
 
             steps {
