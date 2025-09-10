@@ -3,7 +3,7 @@ pipeline {
 
     tools {
         nodejs 'NodeJS 24.7.0'
-        'org.jenkinsci.plugins.docker.commons.tools.DockerTool' 'Docker-pipeline'
+        dockerTool 'Docker-pipeline'
     }
 
     stages {
@@ -45,8 +45,12 @@ pipeline {
         }
 
         stage('Scan Docker image') {
+            agent {
+                docker.pull('aquasec/trivy:latest')
+            }
+
             steps {
-                sh "docker version" // DOCKER_CERT_PATH is automatically picked up by the Docker client
+                sh 'trivy image python:3.4-alpine'
             }
         }
     }
