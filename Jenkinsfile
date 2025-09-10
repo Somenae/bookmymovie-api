@@ -44,15 +44,14 @@ pipeline {
         }
 
         stage('Scan Docker image') {
-            stage('scan') {
-                agent {
-                    docker {
-                        image 'aquasec/trivy:latest'
-                    }
+            agent {
+                docker {
+                    image 'aquasec/trivy:latest'
                 }
-                steps {
-                    sh 'trivy image python:3.4-alpine'
-                }
+            }
+            
+            steps {
+                sh 'trivy image python:3.4-alpine'
             }
         }
     }
