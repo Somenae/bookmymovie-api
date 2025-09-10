@@ -19,5 +19,16 @@ pipeline {
                 junit 'junit.xml'
             }
         }
+
+        stage('SonarQube analysis') {
+            steps {
+                script {
+                    def npmHome = tool 'NodeJS 24.7.0'
+                    withSonarQubeEnv('Bookmymovie') {
+                        echo "====++++${npmHome}++++===="
+                    }
+                }
+            }
+        }
     }
 }
