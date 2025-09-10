@@ -42,5 +42,9 @@ pipeline {
                 sh 'npm audit'
             }
         }
+
+        stage('Scan Docker image') {
+            
+        }
     }
 }
