@@ -22,9 +22,8 @@ pipeline {
         stage('SonarQube analysis') {
             steps {
                 script {
-                    def npmHome = tool 'NodeJS 24.7.0'
                     withSonarQubeEnv('Bookmymovie') {
-                        sh 'npm run sonar'
+                        sh 'npm run sonarQube'
                     }
                 }
             }
