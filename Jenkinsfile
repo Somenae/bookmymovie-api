@@ -1,6 +1,8 @@
 pipeline {
     agent any
-    tool 'NodeJS 24.7.0'
+    tools {
+        nodejs 'NodeJS 24.7.0'
+    }
 
     stages {
         /* stage('clone repo') {
