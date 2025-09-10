@@ -44,7 +44,7 @@ pipeline {
         }
 
         stage('Scan Docker image') {
-            
+            echo "====++++Pouet++++===="
         }
     }
 }
