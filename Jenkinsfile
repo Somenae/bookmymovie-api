@@ -3,6 +3,7 @@ pipeline {
 
     tools {
         nodejs 'NodeJS 24.7.0'
+        docker 'Docker-pipeline'
     }
 
     stages {
@@ -49,7 +50,7 @@ pipeline {
                     image 'aquasec/trivy:latest'
                 }
             }
-            
+
             steps {
                 sh 'trivy image python:3.4-alpine'
             }
