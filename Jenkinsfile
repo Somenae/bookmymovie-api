@@ -5,15 +5,17 @@ pipeline {
     }
 
     stages {
-        /* stage('clone repo') {
-            steps {
-                git 'https://github.com/Somenae/bookmymovie-api'
-            }
-        } */
         stage('build') {
             steps {
                 sh 'npm install'
-                sh 'npm run start:dev'
+                /* sh 'npm run start:dev' */
+            }
+        }
+
+        stage('Tests') {
+            steps {
+                sh 'npm test'
+                junit 'test-result.xml'
             }
         }
     }
