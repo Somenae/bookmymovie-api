@@ -36,5 +36,11 @@ pipeline {
                 }
             }
         }
+
+        stage('Vulnerability check') {
+            steps {
+                sh 'npm audit'
+            }
+        }
     }
 }
