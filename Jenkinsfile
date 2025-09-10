@@ -3,7 +3,9 @@ pipeline {
 
     stages {
         stage('clone repo') {
-            git 'https://github.com/Somenae/bookmymovie-api'
+            steps {
+                git 'https://github.com/Somenae/bookmymovie-api'
+            }
         }
         stage('build') {
             steps {
