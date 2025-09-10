@@ -20,7 +20,8 @@
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev",
-    "prisma:studio": "prisma studio"
+    "prisma:studio": "prisma studio",
+    "sonar": "sonar -Dsonar.host.url=http://localhost:9000 -Dsonar.token=sqp_d6fb8d29e46ab205961e868df77de9dd1184fbbb -Dsonar.projectKey=tp-bookmymovie-halp"
   },
   "dependencies": {
     "@nestjs/common": "^11.0.1",

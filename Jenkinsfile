@@ -9,7 +9,6 @@ pipeline {
         stage('build') {
             steps {
                 sh 'npm install'
-                /* sh 'npm run start:dev' */
             }
         }
 
@@ -25,7 +24,7 @@ pipeline {
                 script {
                     def npmHome = tool 'NodeJS 24.7.0'
                     withSonarQubeEnv('Bookmymovie') {
-                        echo "====++++${npmHome}++++===="
+                        sh 'npm run sonar'
                     }
                 }
             }
