@@ -56,6 +56,7 @@ pipeline {
 
         stage('Scan Docker image') {
             steps {
+                sh 'docker -v'
                 sh 'trivy image python:3.4-alpine'
             }
         }
