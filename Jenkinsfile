@@ -47,10 +47,12 @@ pipeline {
         stage('Initialize' ){
             steps {
                 script {
-                    def dockerHome = tool 'Docker-pipeline'
+                    /* def dockerHome = tool 'Docker-pipeline'
                     env.PATH = "${dockerHome}/bin:${env.PATH}"
                     sh 'chown -R 1000 ${dockerHome}/bin'
-                    sh 'sudo usermod -a -G docker jenkins'
+                    sh 'sudo usermod -a -G docker jenkins' */
+                    def image = docker.image('aquasec/trivy:latest')
+                    image.pull()
                 }
             }
         }
