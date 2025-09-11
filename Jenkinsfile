@@ -49,7 +49,7 @@ pipeline {
                 script {
                     def dockerHome = tool 'Docker-pipeline'
                     env.PATH = "${dockerHome}/bin:${env.PATH}"
-                    sh 'docker -v'
+                    sh 'sudo usermod -a -G docker jenkins'
                 }
             }
         }
