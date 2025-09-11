@@ -1,11 +1,20 @@
-FROM node:18.20.8-alpine
+FROM node:20
 
-WORKDIR /app
+RUN mkdir -p /usr/src/app && chown -R node:node /usr/src/app
 
-COPY package*.json ./
+WORKDIR /usr/src/app
+
+USER node
+
+COPY --chown=node package*.json ./
 
 RUN npm install
 
-COPY . .
+COPY ./src ./src
+COPY tsconfig.json .
 
-CMD ["npm", "start"]
+RUN npm run build
+
+EXPOSE 3000
+
+CMD ["node", "dist/main"]
