@@ -1,16 +1,11 @@
-FROM node:20
+FROM node:18.20.8-alpine
 
-WORKDIR /usr/src/app
+WORKDIR /app
 
 COPY package*.json ./
 
 RUN npm install
 
-COPY ./src ./src
-COPY tsconfig.json .
+COPY . .
 
-RUN npm run build
-
-EXPOSE 3000
-
-CMD ["node", "dist/main"]
+CMD ["npm", "start"]
