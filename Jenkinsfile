@@ -52,11 +52,10 @@ pipeline {
             }
         }
 
-        /* stage('Scan Docker image') {
+        stage('Scan Docker image') {
             steps {
-                sh 'docker -v'
-                sh 'docker pull aquasec/trivy:latest'
+                sh 'trivy -v'
             }
-        } */
+        }
     }
 }
