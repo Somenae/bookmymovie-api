@@ -6,7 +6,7 @@ WORKDIR /usr/src/app
 
 USER node
 
-COPY --chown=node package*.json ./
+COPY --chown=node:node --chmod=755 package*.json ./
 
 RUN npm install
 
