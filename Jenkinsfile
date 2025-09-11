@@ -47,7 +47,7 @@ pipeline {
         stage('Initialize' ){
             steps {
                 script {
-                    sh "sudo docker build -t aquasec/trivy:latest"
+                    sh "sudo docker build -t aquasec/trivy:latest ."
                 }
             }
         }
