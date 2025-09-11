@@ -47,18 +47,16 @@ pipeline {
         stage('Initialize' ){
             steps {
                 script {
-                    def image = docker.image('aquasec/trivy:latest')
-                    image.pull()
-                    /* sh "sudo docker build -t bookmymovie-api:latest ." */
+                    sh "sudo docker build -t aquasec/trivy:latest"
                 }
             }
         }
 
-        stage('Scan Docker image') {
+        /* stage('Scan Docker image') {
             steps {
                 sh 'docker -v'
                 sh 'docker pull aquasec/trivy:latest'
             }
-        }
+        } */
     }
 }
