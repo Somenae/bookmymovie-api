@@ -70,7 +70,6 @@ pipeline {
     post {
         always {
             archiveArtifacts artifacts: '/dist', fingerprint: true
-            junit 'artifact.xml'
         }
     }
 }
