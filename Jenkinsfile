@@ -44,16 +44,14 @@ pipeline {
             }
         }
 
-        stage('Initialize'){
-            def dockerHome = tool 'Docker-pipeline'
-            env.PATH = "${dockerHome}/bin:${env.PATH}"
+        stage('Initialize' ){
+            steps {
+                def dockerHome = tool 'Docker-pipeline'
+                env.PATH = "${dockerHome}/bin:${env.PATH}"
+            }
         }
 
         stage('Scan Docker image') {
-            agent {
-                docker.Image.pull('aquasec/trivy:latest')
-            }
-
             steps {
                 sh 'trivy image python:3.4-alpine'
             }
