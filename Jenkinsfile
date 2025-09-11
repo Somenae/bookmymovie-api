@@ -44,6 +44,11 @@ pipeline {
             }
         }
 
+        stage('Initialize'){
+            def dockerHome = tool 'myDocker'
+            env.PATH = "${dockerHome}/bin:${env.PATH}"
+        }
+
         stage('Scan Docker image') {
             agent {
                 docker.Image.pull('aquasec/trivy:latest')
